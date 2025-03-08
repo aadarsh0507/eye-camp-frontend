@@ -32,7 +32,7 @@ const Login = () => {
       setSuccess(true);
       setError(null);
 
-      navigate("/dashboard"); // Change this to your desired page after login
+      navigate("/dashboard"); // Redirect to dashboard after login
     } catch (err) {
       console.error("Error:", err.response ? err.response.data : err.message);
       let errorMessage = "An error occurred while logging in.";
@@ -56,44 +56,41 @@ const Login = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        padding: "20px",
       }}
     >
       <Container>
         <Row className="justify-content-center">
-          <Col md={4}>
-            <Card className="p-3 shadow-lg rounded-4">
-              <h4 className="text-center text-danger mb-3">Welcome Back!</h4>
+          <Col xs={12} sm={10} md={8} lg={5}> {/* More balanced width */}
+            <Card className="p-4 shadow-lg rounded-4">
+              <h2 className="text-center text-danger mb-4">Welcome Back!</h2>
               <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-2">
+                <Form.Group className="mb-3">
                   <Form.Label>Employee ID</Form.Label>
                   <InputGroup>
-                    <InputGroup.Text>
-                      <FaIdBadge />
-                    </InputGroup.Text>
+                    <InputGroup.Text><FaIdBadge /></InputGroup.Text>
                     <Form.Control
-                      size="sm"
                       type="text"
                       placeholder="Enter Employee ID"
                       value={employeeId}
                       onChange={(e) => setEmployeeId(e.target.value)}
                       required
+                      style={{ height: "45px", padding: "10px" }}
                     />
                   </InputGroup>
                 </Form.Group>
 
-                <Form.Group className="mb-2">
+                <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
                   <InputGroup>
-                    <InputGroup.Text>
-                      <FaLock />
-                    </InputGroup.Text>
+                    <InputGroup.Text><FaLock /></InputGroup.Text>
                     <Form.Control
-                      size="sm"
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter Password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
+                      style={{ height: "45px", padding: "10px" }}
                     />
                     <InputGroup.Text
                       onClick={() => setShowPassword(!showPassword)}
@@ -107,12 +104,13 @@ const Login = () => {
                 <Button
                   variant="danger"
                   type="submit"
-                  className="w-100 mt-2"
+                  className="w-100"
                   style={{
                     fontWeight: "bold",
                     background: "#ff5e62",
                     border: "none",
-                    padding: "8px",
+                    padding: "12px",
+                    fontSize: "16px",
                     transition: "0.3s",
                   }}
                   onMouseOver={(e) => (e.target.style.background = "#e04a50")}
@@ -123,18 +121,18 @@ const Login = () => {
               </Form>
 
               {success && (
-                <Alert variant="success" className="mt-2 text-center">
+                <Alert variant="success" className="mt-3 text-center">
                   Login successful! Redirecting...
                 </Alert>
               )}
               {error && (
-                <Alert variant="danger" className="mt-2 text-center">
+                <Alert variant="danger" className="mt-3 text-center">
                   {error}
                 </Alert>
               )}
 
-              <p className="text-center mt-2">
-                Don't have an account? <a href="/" className="text-danger">Sign up here</a>
+              <p className="text-center mt-3">
+                Don't have an account? <a href="/register" className="text-danger">Sign up here</a>
               </p>
             </Card>
           </Col>

@@ -40,9 +40,12 @@ const Register = () => {
     try {
       const response = await axios.post("http://localhost:3001/signup", formData);
       console.log("Response:", response.data);
+
       setSuccess(true);
       setError(null);
     } catch (err) {
+      console.error("Error:", err.response ? err.response.data : err.message);
+
       let errorMessage = "An error occurred while submitting the form.";
       if (err.response) {
         errorMessage = err.response.data.message || err.message;
@@ -51,6 +54,7 @@ const Register = () => {
       } else {
         errorMessage = err.message || "Something went wrong. Please try again later.";
       }
+
       setError(errorMessage);
       setSuccess(false);
     }
@@ -68,13 +72,13 @@ const Register = () => {
     >
       <Container>
         <Row className="justify-content-center">
-          <Col md={5}>
-            <Card className="p-3 shadow-lg rounded-4">
-              <h3 className="text-center text-danger mb-3">Create an Account</h3>
+          <Col md={7} lg={6}>
+            <Card className="p-4 shadow-lg rounded-4" style={{ maxWidth: "500px", margin: "auto" }}>
+              <h2 className="text-center text-danger mb-4">Create an Account</h2>
               <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-2">
+                <Form.Group className="mb-3">
                   <Form.Label>Name</Form.Label>
-                  <InputGroup size="sm">
+                  <InputGroup>
                     <InputGroup.Text>
                       <FaUser />
                     </InputGroup.Text>
@@ -85,13 +89,14 @@ const Register = () => {
                       value={formData.firstName}
                       onChange={handleChange}
                       required
+                      style={{ height: "45px", paddingLeft: "10px" }}
                     />
                   </InputGroup>
                 </Form.Group>
 
-                <Form.Group className="mb-2">
+                <Form.Group className="mb-3">
                   <Form.Label>Employee ID</Form.Label>
-                  <InputGroup size="sm">
+                  <InputGroup>
                     <InputGroup.Text>
                       <FaIdBadge />
                     </InputGroup.Text>
@@ -102,13 +107,14 @@ const Register = () => {
                       value={formData.employeeId}
                       onChange={handleChange}
                       required
+                      style={{ height: "45px", paddingLeft: "10px" }}
                     />
                   </InputGroup>
                 </Form.Group>
 
-                <Form.Group className="mb-2">
+                <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
-                  <InputGroup size="sm">
+                  <InputGroup>
                     <InputGroup.Text>
                       <FaLock />
                     </InputGroup.Text>
@@ -119,6 +125,7 @@ const Register = () => {
                       value={formData.password}
                       onChange={handleChange}
                       required
+                      style={{ height: "45px", paddingLeft: "10px" }}
                     />
                     <InputGroup.Text
                       onClick={() => setShowPassword(!showPassword)}
@@ -129,9 +136,9 @@ const Register = () => {
                   </InputGroup>
                 </Form.Group>
 
-                <Form.Group className="mb-2">
+                <Form.Group className="mb-3">
                   <Form.Label>Confirm Password</Form.Label>
-                  <InputGroup size="sm">
+                  <InputGroup>
                     <InputGroup.Text>
                       <FaLock />
                     </InputGroup.Text>
@@ -142,6 +149,7 @@ const Register = () => {
                       value={formData.passwordConfirmation}
                       onChange={handleChange}
                       required
+                      style={{ height: "45px", paddingLeft: "10px" }}
                     />
                     <InputGroup.Text
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
@@ -155,13 +163,13 @@ const Register = () => {
                 <Button
                   variant="danger"
                   type="submit"
-                  className="w-100 mt-2"
+                  className="w-100"
                   style={{
-                    fontSize: "14px",
-                    padding: "8px",
                     fontWeight: "bold",
                     background: "#ff5e62",
                     border: "none",
+                    padding: "12px",
+                    fontSize: "16px",
                     transition: "0.3s",
                   }}
                   onMouseOver={(e) => (e.target.style.background = "#e04a50")}
@@ -172,17 +180,17 @@ const Register = () => {
               </Form>
 
               {success && (
-                <Alert variant="success" className="mt-2 text-center">
+                <Alert variant="success" className="mt-3 text-center">
                   Signup successful! You can now <a href="/login">Login</a>.
                 </Alert>
               )}
               {error && (
-                <Alert variant="danger" className="mt-2 text-center">
+                <Alert variant="danger" className="mt-3 text-center">
                   {error}
                 </Alert>
               )}
 
-              <p className="text-center mt-2">
+              <p className="text-center mt-3">
                 Already have an account? <a href="/login" className="text-danger">Login here</a>
               </p>
             </Card>
