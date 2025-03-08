@@ -12,9 +12,8 @@ export const FormProvider = ({ children }) => {
     sex: "Male",
     age: "",
     mobile: "",
-    address1: "",
-    address2: "",
-    address3: "",
+    address: "",
+    
     district: "",
     otherDistrict: "",
     email: "",
@@ -27,13 +26,30 @@ export const FormProvider = ({ children }) => {
     registrationDateTime: "",
     otInDateTime: "",
     surgeryDate: "",
-    surgeryPlace: "",
+    surgeryPlace: "Melmaruvathur",
     operatedEye: "",
     registrationDatetime: "",
     otDatetime: "",
+    dateOfDischarge: '',
+    visionRightEye: '',
+    visionLeftEye: '',
+    finalDiagnosis: {
+        diagnosis: '',
+        medication: '',
+        moxapDexa: false,
+    },
+    visits: {
+        firstVisit: '',
+        secondVisit: '',
+    },
+    followUp: {
+        referredBy: '',
+        referralSource: '',
+    },
+});
+
     
-    // Add fields for all pages
-  });
+    // Add fields for all pag
 
   return (
     <FormContext.Provider value={{ formData, setFormData }}>
