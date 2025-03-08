@@ -13,7 +13,6 @@ export const FormProvider = ({ children }) => {
     age: "",
     mobile: "",
     address: "",
-    
     district: "",
     otherDistrict: "",
     email: "",
@@ -30,26 +29,10 @@ export const FormProvider = ({ children }) => {
     operatedEye: "",
     registrationDatetime: "",
     otDatetime: "",
-    dateOfDischarge: '',
-    visionRightEye: '',
-    visionLeftEye: '',
-    finalDiagnosis: {
-        diagnosis: '',
-        medication: '',
-        moxapDexa: false,
-    },
-    visits: {
-        firstVisit: '',
-        secondVisit: '',
-    },
-    followUp: {
-        referredBy: '',
-        referralSource: '',
-    },
-});
-
     
-    // Add fields for all pag
+    
+    // Add fields for all pages
+  });
 
   return (
     <FormContext.Provider value={{ formData, setFormData }}>

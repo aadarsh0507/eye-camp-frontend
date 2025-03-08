@@ -37,13 +37,13 @@ const EditDischarge = () => {
           }}
         >
           <Card.Body>
-            <h2 className="text-center mb-4 fw-bold">Edit Discharge</h2>
+            <h2 className="text-center text-danger mb-4 fw-bold">Edit Discharge</h2>
 
             <Form onSubmit={handleSubmit}>
               <Row className="mb-3">
                 <Col md={12}>
                   <Form.Group>
-                    <Form.Label className="fw-semibold text-dark">Date of Discharge</Form.Label>
+                    <Form.Label className="fw-semibold">Date of Discharge</Form.Label>
                     <Form.Control
                       type="date"
                       name="dateOfDischarge"
@@ -57,7 +57,7 @@ const EditDischarge = () => {
               <Row className="mb-3">
                 <Col md={6}>
                   <Form.Group>
-                    <Form.Label className="fw-semibold text-dark">Vision In Right Eye</Form.Label>
+                    <Form.Label className="fw-semibold">Vision In Right Eye</Form.Label>
                     <Form.Control
                       type="text"
                       name="visionRightEye"
@@ -68,7 +68,7 @@ const EditDischarge = () => {
                 </Col>
                 <Col md={6}>
                   <Form.Group>
-                    <Form.Label className="fw-semibold text-dark">Vision In Left Eye</Form.Label>
+                    <Form.Label className="fw-semibold">Vision In Left Eye</Form.Label>
                     <Form.Control
                       type="text"
                       name="visionLeftEye"
@@ -140,7 +140,7 @@ const EditDischarge = () => {
               <Row className="mb-3">
                 <Col md={12}>
                   <Form.Group>
-                    <Form.Label className="fw-semibold text-dark">Others</Form.Label>
+                    <Form.Label className="fw-semibold">Others</Form.Label>
                     <Form.Control
                       type="text"
                       name="others"
@@ -154,7 +154,7 @@ const EditDischarge = () => {
               <Row className="mb-3">
                 <Col md={6}>
                   <Form.Group>
-                    <Form.Label className="fw-semibold text-dark">1st Visit</Form.Label>
+                    <Form.Label className="fw-semibold">1st Visit</Form.Label>
                     <Form.Control
                       type="date"
                       name="firstVisit"
@@ -165,7 +165,7 @@ const EditDischarge = () => {
                 </Col>
                 <Col md={6}>
                   <Form.Group>
-                    <Form.Label className="fw-semibold text-dark">2nd Visit</Form.Label>
+                    <Form.Label className="fw-semibold">2nd Visit</Form.Label>
                     <Form.Control
                       type="date"
                       name="secondVisit"
@@ -179,7 +179,7 @@ const EditDischarge = () => {
               <Row className="mb-3">
                 <Col md={12}>
                   <Form.Group>
-                    <Form.Label className="fw-semibold text-dark">Follow Place</Form.Label>
+                    <Form.Label className="fw-semibold">Follow Place</Form.Label>
                     <Form.Control
                       type="text"
                       name="followPlace"
@@ -190,10 +190,10 @@ const EditDischarge = () => {
                 </Col>
               </Row>
 
-              <Row className="mb-3">
+               <Row className="mb-3">
       <Col md={12}>
         <Form.Group>
-          <Form.Label className="fw-semibold text-dark">Referred By</Form.Label>
+          <Form.Label className="fw-semibold">Referred By</Form.Label>
           <Form.Select
             name="referredBy"
             value={formData.referredBy || ""}
@@ -216,7 +216,7 @@ const EditDischarge = () => {
 
               <Button
                 type="submit"
-                className="w-100 btn-danger fw-semibold text-whi p-2 rounded-3 shadow-sm"
+                className="w-100 btn-danger fw-semibold p-2 rounded-3 shadow-sm"
               >
                Submit
               </Button>
